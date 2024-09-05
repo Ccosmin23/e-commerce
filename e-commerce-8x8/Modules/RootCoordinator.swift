@@ -23,7 +23,11 @@ final class RootCoordinator {
             return
         }
 
-        let viewController = UIHostingController(rootView: ProductsListView())
+        
+        let viewModel = ProductListViewModel()
+        let view = ProductsListView(viewModel: viewModel)
+        
+        let viewController = UIHostingController(rootView: view)
         navigationController.pushViewController(viewController, animated: true)
     }
 }
