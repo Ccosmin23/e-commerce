@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import UIKit
+import SwiftUI
 
 final class RootCoordinator {
     weak var window: UIWindow?
@@ -23,7 +23,7 @@ final class RootCoordinator {
             return
         }
 
-        let viewController = UIHostingController(rootView: <#T##Content#>)
+        let viewController = UIHostingController(rootView: ProductsListView())
         navigationController.pushViewController(viewController, animated: true)
     }
 }
