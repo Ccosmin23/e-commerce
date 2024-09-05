@@ -18,7 +18,13 @@
 		C15858AD2C89A9770009EF8F /* e_commerce_8x8UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15858AC2C89A9770009EF8F /* e_commerce_8x8UITestsLaunchTests.swift */; };
 		C15858BA2C89AA260009EF8F /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15858B92C89AA260009EF8F /* RootCoordinator.swift */; };
 		C15858BC2C89B1BB0009EF8F /* ProductsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15858BB2C89B1BB0009EF8F /* ProductsListView.swift */; };
-		C15858BE2C89B1D00009EF8F /* ProductDetailsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15858BD2C89B1D00009EF8F /* ProductDetailsPage.swift */; };
+		C15858BE2C89B1D00009EF8F /* ProductDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15858BD2C89B1D00009EF8F /* ProductDetailsView.swift */; };
+		C15858C12C89BE610009EF8F /* NavigationStack in Frameworks */ = {isa = PBXBuildFile; productRef = C15858C02C89BE610009EF8F /* NavigationStack */; };
+		C15858CA2C89BF7F0009EF8F /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15858C92C89BF7F0009EF8F /* CartView.swift */; };
+		C15858CD2C89C02A0009EF8F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15858CC2C89C02A0009EF8F /* API.swift */; };
+		C15858CF2C89C0480009EF8F /* ProductsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15858CE2C89C0480009EF8F /* ProductsService.swift */; };
+		C15858D12C89C05B0009EF8F /* CartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15858D02C89C05B0009EF8F /* CartService.swift */; };
+		C15858D42C89C0C40009EF8F /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15858D32C89C0C40009EF8F /* CacheManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +60,12 @@
 		C15858AC2C89A9770009EF8F /* e_commerce_8x8UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = e_commerce_8x8UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C15858B92C89AA260009EF8F /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
 		C15858BB2C89B1BB0009EF8F /* ProductsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListView.swift; sourceTree = "<group>"; };
-		C15858BD2C89B1D00009EF8F /* ProductDetailsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsPage.swift; sourceTree = "<group>"; };
+		C15858BD2C89B1D00009EF8F /* ProductDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsView.swift; sourceTree = "<group>"; };
+		C15858C92C89BF7F0009EF8F /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		C15858CC2C89C02A0009EF8F /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		C15858CE2C89C0480009EF8F /* ProductsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsService.swift; sourceTree = "<group>"; };
+		C15858D02C89C05B0009EF8F /* CartService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartService.swift; sourceTree = "<group>"; };
+		C15858D32C89C0C40009EF8F /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C15858C12C89BE610009EF8F /* NavigationStack in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,9 +124,8 @@
 				C15858942C89A9760009EF8F /* LaunchScreen.storyboard */,
 				C15858972C89A9760009EF8F /* Info.plist */,
 				C158588F2C89A9750009EF8F /* e_commerce_8x8.xcdatamodeld */,
-				C15858B92C89AA260009EF8F /* RootCoordinator.swift */,
-				C15858BB2C89B1BB0009EF8F /* ProductsListView.swift */,
-				C15858BD2C89B1D00009EF8F /* ProductDetailsPage.swift */,
+				C15858C32C89BEA30009EF8F /* Modules */,
+				C15858C82C89BF310009EF8F /* Services */,
 			);
 			path = "e-commerce-8x8";
 			sourceTree = "<group>";
@@ -136,6 +147,84 @@
 			path = "e-commerce-8x8UITests";
 			sourceTree = "<group>";
 		};
+		C15858C32C89BEA30009EF8F /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				C15858B92C89AA260009EF8F /* RootCoordinator.swift */,
+				C15858C42C89BED40009EF8F /* Main */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		C15858C42C89BED40009EF8F /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C15858C62C89BF110009EF8F /* ProductsList */,
+				C15858C72C89BF1D0009EF8F /* ProductDetails */,
+				C15858C52C89BF030009EF8F /* Cart */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		C15858C52C89BF030009EF8F /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				C15858C92C89BF7F0009EF8F /* CartView.swift */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
+		C15858C62C89BF110009EF8F /* ProductsList */ = {
+			isa = PBXGroup;
+			children = (
+				C15858BB2C89B1BB0009EF8F /* ProductsListView.swift */,
+			);
+			path = ProductsList;
+			sourceTree = "<group>";
+		};
+		C15858C72C89BF1D0009EF8F /* ProductDetails */ = {
+			isa = PBXGroup;
+			children = (
+				C15858BD2C89B1D00009EF8F /* ProductDetailsView.swift */,
+			);
+			path = ProductDetails;
+			sourceTree = "<group>";
+		};
+		C15858C82C89BF310009EF8F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C15858CB2C89BFDE0009EF8F /* API */,
+				C15858D22C89C0780009EF8F /* Cache */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		C15858CB2C89BFDE0009EF8F /* API */ = {
+			isa = PBXGroup;
+			children = (
+				C15858CC2C89C02A0009EF8F /* API.swift */,
+				C15858CE2C89C0480009EF8F /* ProductsService.swift */,
+				C15858D02C89C05B0009EF8F /* CartService.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		C15858D22C89C0780009EF8F /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				C15858D32C89C0C40009EF8F /* CacheManager.swift */,
+				C15858D52C89C0D00009EF8F /* CRUDOperations */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		C15858D52C89C0D00009EF8F /* CRUDOperations */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CRUDOperations;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -152,6 +241,9 @@
 			dependencies = (
 			);
 			name = "e-commerce-8x8";
+			packageProductDependencies = (
+				C15858C02C89BE610009EF8F /* NavigationStack */,
+			);
 			productName = "e-commerce-8x8";
 			productReference = C15858832C89A9750009EF8F /* e-commerce-8x8.app */;
 			productType = "com.apple.product-type.application";
@@ -224,6 +316,9 @@
 				Base,
 			);
 			mainGroup = C158587A2C89A9750009EF8F;
+			packageReferences = (
+				C15858BF2C89BE610009EF8F /* XCRemoteSwiftPackageReference "swiftui-navigation-stack" */,
+			);
 			productRefGroup = C15858842C89A9750009EF8F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -268,11 +363,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				C15858BC2C89B1BB0009EF8F /* ProductsListView.swift in Sources */,
+				C15858CA2C89BF7F0009EF8F /* CartView.swift in Sources */,
 				C15858BA2C89AA260009EF8F /* RootCoordinator.swift in Sources */,
+				C15858D12C89C05B0009EF8F /* CartService.swift in Sources */,
 				C15858912C89A9750009EF8F /* e_commerce_8x8.xcdatamodeld in Sources */,
 				C15858872C89A9750009EF8F /* AppDelegate.swift in Sources */,
+				C15858D42C89C0C40009EF8F /* CacheManager.swift in Sources */,
 				C15858892C89A9750009EF8F /* SceneDelegate.swift in Sources */,
-				C15858BE2C89B1D00009EF8F /* ProductDetailsPage.swift in Sources */,
+				C15858CD2C89C02A0009EF8F /* API.swift in Sources */,
+				C15858BE2C89B1D00009EF8F /* ProductDetailsView.swift in Sources */,
+				C15858CF2C89C0480009EF8F /* ProductsService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,6 +719,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C15858BF2C89BE610009EF8F /* XCRemoteSwiftPackageReference "swiftui-navigation-stack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/matteopuc/swiftui-navigation-stack.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C15858C02C89BE610009EF8F /* NavigationStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C15858BF2C89BE610009EF8F /* XCRemoteSwiftPackageReference "swiftui-navigation-stack" */;
+			productName = NavigationStack;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		C158588F2C89A9750009EF8F /* e_commerce_8x8.xcdatamodeld */ = {
