@@ -6,3 +6,21 @@
 //
 
 import Foundation
+import Realm
+
+final class CacheManager {
+    /// get
+    static func getAllCartProducts() {
+        
+    }
+    
+    /// save
+    static func save(product: Product) {
+        
+    }
+    
+    /// remove
+    static func removeFromCart(product: Product) {
+        
+    }
+}

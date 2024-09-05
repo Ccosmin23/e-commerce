@@ -10,6 +10,7 @@ import Kingfisher
 
 struct ProductDetailsView: View {
     let product: Product
+    @StateObject var viewModel = ProductDetailsViewModel()
     
     var body: some View {
         ScrollView {
@@ -26,11 +27,35 @@ struct ProductDetailsView: View {
         }
         .padding(.horizontal, 24)
         .scrollIndicators(.hidden)
+        .overlay(addToCartButton, alignment: .bottom)
     }
 }
 
 //MARK: - view components
 extension ProductDetailsView {
+    private var addToCartButton: some View {
+        Button {
+            viewModel.addToCart(product: product)
+        } label: {
+            addToCartButtonLabel
+        }
+    }
+    
+    private var addToCartButtonLabel: some View {
+        ZStack {
+            Color.blue
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+
+            Text("Add to cart")
+                .foregroundStyle(.white)
+                .bold()
+
+        }
+        .padding(.horizontal, 16)
+        .frame(height: 50)
+        .background(Color.white)
+    }
+    
     private var titleAndSubtitle: some View {
         VStack(alignment: .leading, spacing: 20) {
             Text(product.title)
@@ -43,7 +68,7 @@ extension ProductDetailsView {
     
     private var priceView: some View {
         Text(product.formattedPrice)
-            .foregroundStyle(.purple)
+            .foregroundStyle(.blue)
             .font(.title)
             .bold()
     }
@@ -60,7 +85,7 @@ extension ProductDetailsView {
         ZStack {
             Color.green
                 .clipShape(RoundedRectangle(cornerRadius: 12))
-
+            
             Text("CC")
                 .foregroundStyle(.white)
         }
