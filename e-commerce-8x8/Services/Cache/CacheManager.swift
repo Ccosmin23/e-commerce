@@ -6,21 +6,78 @@
 //
 
 import Foundation
-import Realm
+import RealmSwift
 
 final class CacheManager {
-    /// get
-    static func getAllCartProducts() {
+    static let shared = CacheManager()
+    
+    var realm: Realm? {
+        var realm: Realm? = nil
         
+        do {
+            realm = try Realm(configuration: Realm.Configuration())
+        } catch {
+            print("Error opening realm: \(error)")
+        }
+        
+        return realm
     }
     
-    /// save
-    static func save(product: Product) {
+    /// read
+    func getAllCartProducts() -> [CartProduct]? {
+        guard let objects = realm?.objects(CartProductRealmObject.self) else {
+            return nil
+        }
         
+        let products: [CartProduct] = objects.map { $0.convertToCoreModel() }
+        return products
     }
     
-    /// remove
-    static func removeFromCart(product: Product) {
-        
+    /// add
+    func saveProduct(with id: Int) {
+        do {
+            guard let cartProducts = realm?.objects(CartProductRealmObject.self),
+                  let product = cartProducts.first(where: { $0.productID == id })
+            else {
+                let realmObject = CartProductRealmObject()
+                realmObject.productID = id
+                realmObject.quantity = 1
+                
+                try realm?.write {
+                    realm?.add(realmObject)
+                }
+                
+                return
+            }
+            
+            let newQuantity = product.quantity + 1
+            
+            try realm?.write {
+                product.quantity = newQuantity
+            }
+        } catch {
+            print("\n \(error)")
+        }
+    }
+    
+    /// delete
+    func removeFromCart(product: Product) {
+        do {
+            try realm?.write {
+                realm?.delete(product.convertToRealmObject())
+            }
+        } catch {
+            print("\n \(error)")
+        }
+    }
+    
+    func deleteAllProducts() {
+        do {
+            try realm?.write {
+                realm?.deleteAll()
+            }
+        } catch {
+            print("\n \(error)")
+        }
     }
 }
