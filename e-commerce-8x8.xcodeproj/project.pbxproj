@@ -250,17 +250,9 @@
 			isa = PBXGroup;
 			children = (
 				C15858D32C89C0C40009EF8F /* CacheManager.swift */,
-				C15858D52C89C0D00009EF8F /* CacheOperations */,
 				C1CFBDD12C89FA56009691A2 /* RealmModels */,
 			);
 			path = Cache;
-			sourceTree = "<group>";
-		};
-		C15858D52C89C0D00009EF8F /* CacheOperations */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CacheOperations;
 			sourceTree = "<group>";
 		};
 		C15858D92C89CFA30009EF8F /* Core */ = {

@@ -2,13 +2,13 @@
 //  CartRealmObject.swift
 //  e-commerce-8x8
 //
-//  Created by Cosmin Cosan - tapptitude on 11.09.2024.
+//  Created by Cosmin Cosan - on 11.09.2024.
 //
 
 import Foundation
 import RealmSwift
 
-class CartProductRealmObject: Object {
+class CartProductRealmObject: Object, Codable {
     @Persisted var productID: Int
     @Persisted var quantity: Int
     
