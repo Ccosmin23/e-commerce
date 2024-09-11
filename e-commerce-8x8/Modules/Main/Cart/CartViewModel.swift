@@ -11,12 +11,23 @@ final class CartViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var productsList = [Product]()
     
-    init() {
+    init(
+        productObservable: ProductObservableProtocol = ProductObservable.shared
+    ) {
+        productObservable.addAsObserver(self)
+        
         loadCart()
     }
 }
 
 extension CartViewModel {
+    func refreshProductList() {
+        productsList = []
+        
+        loadCart()
+        objectWillChange.send()
+    }
+    
     private func loadCart() {
         Task { @MainActor [weak self] in
             do {
@@ -45,6 +56,20 @@ extension CartViewModel {
             CacheManager.shared.removeProduct(with: productID)
         case .add:
             CacheManager.shared.saveProduct(with: productID)
-        }        
+        }
+        
+        refreshProductList()
+    }
+}
+
+extension CartViewModel: ProductObserver {
+    func productObservable(_ observable: any ProductObservableProtocol, didUpdate product: Product) {
+        if let index = productsList.firstIndex(where: { $0.id == product.id }) {
+            let quantity = productsList[index].quantity ?? 1
+            
+            productsList[index].quantity = quantity + 1
+        } else {
+            productsList.append(product)
+        }
     }
 }

@@ -9,10 +9,11 @@ import Foundation
 
 final class ProductDetailsViewModel: ObservableObject {
     
-    func addToCart(productID: Int) {
-        CacheManager.shared.saveProduct(with: productID)
-        ToastMessage.show(message: "Product has been added successful to cart")
-        
+    func addToCart(product: Product) {
+        CacheManager.shared.saveProduct(with: product.id)
+        ProductObservable.shared.notifyAboutChanges(product)
+
+        ToastMessage.show(message: "Product has been added successful to cart")        
         print(CacheManager.shared.getAllCartProducts() ?? "missing data")
     }
 }

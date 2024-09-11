@@ -67,7 +67,7 @@ extension ProductCellView {
     
     private var quantityView: some View {
         VStack(spacing: 15) {
-            Text(product.quantity?.description ?? "missing value")
+            Text(product.quantity?.description ?? "1")
                 .multilineTextAlignment(.center)
             
             HStack {

@@ -42,12 +42,12 @@ struct ToastMessage: View {
 extension ToastMessage {
     private var backgroundColor: some View {
         RoundedRectangle(cornerRadius: 12)
-            .fill(type == .error ? .red : .green)
+            .fill(.green)
     }
     
     private var strokeView: some View {
         RoundedRectangle(cornerRadius: 12)
-            .stroke(type == .error ? .red : .green, lineWidth: 1)
+            .stroke(.green, lineWidth: 1)
     }
     
     private var titleView: some View {

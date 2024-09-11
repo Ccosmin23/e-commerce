@@ -35,7 +35,7 @@ struct ProductDetailsView: View {
 extension ProductDetailsView {
     private var addToCartButton: some View {
         Button {
-            viewModel.addToCart(productID: product.id)
+            viewModel.addToCart(product: product)
         } label: {
             addToCartButtonLabel
         }
