@@ -12,10 +12,6 @@ final class ProductListViewModel: ObservableObject {
     @Published var isLoading = false
     
     init() {
-        #if DEBUG
-        print(CacheManager.shared.getAllCartProducts() ?? [])
-        #endif
-        
         loadProducts()
     }
 }

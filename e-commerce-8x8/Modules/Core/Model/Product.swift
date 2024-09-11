@@ -15,7 +15,7 @@ struct Product: Codable {
     let category: String
     let image: String
     let rating: ProductRating?
-    let quantity: Int?
+    var quantity: Int?
     
     var formattedPrice: String {
         let count = quantity ?? 1

@@ -24,8 +24,8 @@ final class RootCoordinator {
         }
 
         
-        let viewModel = ProductListViewModel()
-        let view = ProductsListView(viewModel: viewModel)
+        let viewModel = MainViewModel()
+        let view = MainView(viewModel: viewModel)
         
         let viewController = UIHostingController(rootView: view)
         navigationController.pushViewController(viewController, animated: true)

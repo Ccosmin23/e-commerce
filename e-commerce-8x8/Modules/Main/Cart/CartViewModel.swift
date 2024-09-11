@@ -21,7 +21,16 @@ extension CartViewModel {
         Task { @MainActor [weak self] in
             do {
                 self?.isLoading = true
-                self?.productsList = try await ProductsService.getAllProducts()
+                let products = try await ProductsService.getAllProducts()
+                let cachedProducts = CacheManager.shared.getAllCartProducts()
+                
+                cachedProducts?.forEach { cachedProduct in
+                    if var item = products.first(where: { $0.id == cachedProduct.productID }) {
+                        item.quantity = cachedProduct.quantity
+                        self?.productsList.append(item)
+                    }
+                }
+                
             } catch {
                 print(error.localizedDescription)
             }
@@ -36,6 +45,6 @@ extension CartViewModel {
             CacheManager.shared.removeProduct(with: productID)
         case .add:
             CacheManager.shared.saveProduct(with: productID)
-        }
+        }        
     }
 }

@@ -11,9 +11,11 @@ struct CartView: View {
     @ObservedObject var viewModel: CartViewModel
     
     var body: some View {
-        NavigationStack {
+        ZStack {
             if viewModel.isLoading {
                 ProgressView()
+            } else if viewModel.productsList.isEmpty {
+                emptyStateView
             } else {
                 contentView
             }
@@ -32,6 +34,7 @@ extension CartView {
                 }
             }
         }
+        .background(Color.green.opacity(0.5))
     }
     
     private func productCellView(for product: Product) -> some View {
@@ -42,6 +45,16 @@ extension CartView {
                 viewModel.handle(operation: operation, for: product.id)
             }
         )
+    }
+    
+    private var emptyStateView: some View {
+        ZStack {
+            Color.red
+                .opacity(0.5)
+                .ignoresSafeArea()
+            
+            Text("empty state")
+        }
     }
 }
 
