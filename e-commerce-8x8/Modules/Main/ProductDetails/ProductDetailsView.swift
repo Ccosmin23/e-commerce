@@ -28,16 +28,38 @@ struct ProductDetailsView: View {
         .padding(.horizontal, 24)
         .scrollIndicators(.hidden)
         .overlay(addToCartButton, alignment: .bottom)
+        .onAppear {
+            viewModel.randomProductsList(productID: product.id)
+        }
     }
 }
 
 //MARK: - view components
 extension ProductDetailsView {
+    private var otherItemsView: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            LazyHStack {
+                ForEach(viewModel.productsList, id: \.id) { product in
+                    ProductCellView(product: product, shouldShowQuantity: false, completion: nil)
+                    Divider()
+                }
+            }
+        }
+        .frame(height: 120)
+        .background(Color.gray.opacity(0.2))
+        .clipShape(RoundedRectangle(cornerRadius: 12))
+        .ignoresSafeArea()
+    }
+    
     private var addToCartButton: some View {
-        Button {
-            viewModel.addToCart(product: product)
-        } label: {
-            addToCartButtonLabel
+        VStack {
+            otherItemsView
+
+            Button {
+                viewModel.addToCart(product: product)
+            } label: {
+                addToCartButtonLabel
+            }
         }
     }
     
@@ -45,11 +67,11 @@ extension ProductDetailsView {
         ZStack {
             Color.blue
                 .clipShape(RoundedRectangle(cornerRadius: 12))
-
+            
             Text("Add to cart")
                 .foregroundStyle(.white)
                 .bold()
-
+            
         }
         .padding(.horizontal, 16)
         .frame(height: 50)
