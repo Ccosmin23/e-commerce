@@ -61,10 +61,23 @@ final class CacheManager {
     }
     
     /// delete
-    func removeFromCart(product: Product) {
+    func removeProduct(with id: Int) {
         do {
+            guard let cartProducts = realm?.objects(CartProductRealmObject.self),
+                  let product = cartProducts.first(where: { $0.productID == id })
+            else {
+                print("\nthere is no product to delete")
+                return
+            }
+            
+            let newQuantity = product.quantity - 1
+            
             try realm?.write {
-                realm?.delete(product.convertToRealmObject())
+                if newQuantity == 0 {
+                    realm?.delete(product)
+                } else {
+                    product.quantity = newQuantity
+                }
             }
         } catch {
             print("\n \(error)")

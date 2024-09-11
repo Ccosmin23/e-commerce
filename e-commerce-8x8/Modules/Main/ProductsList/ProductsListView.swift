@@ -39,51 +39,8 @@ extension ProductsListView {
         NavigationLink {
             ProductDetailsView(product: product)
         } label: {
-            navigationLinkLabel(with: product)
+            ProductCellView(product: product, shouldShowQuantity: false, completion: nil)
         }
-    }
-    
-    private func navigationLinkLabel(with product: Product) -> some View {
-        HStack(spacing: 35) {
-            productImage(with: URL(string: product.image))
-            productTitle(with: product)
-            Spacer()
-            productPrice(with: product)
-        }
-        .padding(.horizontal, 24)
-    }
-    
-    @ViewBuilder
-    private func productImage(with url: URL?) -> some View {
-        KFImage(url)
-            .placeholder({ productImagePlaceholder })
-            .resizable()
-            .scaledToFit()
-            .clipShape(RoundedRectangle(cornerRadius: 12))
-            .frame(width: 50, height: 50)
-    }
-    
-    private var productImagePlaceholder: some View {
-        ZStack {
-            Color.green
-                .clipShape(RoundedRectangle(cornerRadius: 12))
-
-            Text("CC")
-                .foregroundStyle(.white)
-        }
-        .frame(width: 50, height: 50)
-    }
-    
-    private func productTitle(with product: Product) -> some View {
-        Text(product.title)
-            .multilineTextAlignment(.leading)
-            .fixedSize(horizontal: false, vertical: true)
-    }
-    
-    @ViewBuilder
-    private func productPrice(with product: Product) -> some View {
-        Text(product.formattedPrice)
-            .bold()
     }
 }
 

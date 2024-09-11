@@ -33,7 +33,8 @@ extension ProductRealmObject {
             description: self.details,
             category: self.category,
             image: self.image,
-            rating: ProductRating(rate: self.rateValue, count: self.rateCount)
+            rating: ProductRating(rate: self.rateValue, count: self.rateCount),
+            quantity: nil
         )
     }
 }

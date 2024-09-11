@@ -32,6 +32,8 @@
 		C15859452C89F6F10009EF8F /* ProductDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15859442C89F6F10009EF8F /* ProductDetailsViewModel.swift */; };
 		C18F11B22C916B0E00379255 /* CartRealmObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18F11B12C916B0E00379255 /* CartRealmObject.swift */; };
 		C18F11B42C916B2400379255 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18F11B32C916B2400379255 /* Cart.swift */; };
+		C18F11B62C91757C00379255 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18F11B52C91757C00379255 /* CartViewModel.swift */; };
+		C18F11B92C9176F400379255 /* ProductCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18F11B82C9176F400379255 /* ProductCellView.swift */; };
 		C1CFBDD32C89FA70009691A2 /* ProductRealmObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CFBDD22C89FA70009691A2 /* ProductRealmObject.swift */; };
 		C1CFBDD82C89FEE1009691A2 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C1CFBDD72C89FEE1009691A2 /* RealmSwift */; };
 		C1CFBDDB2C8B2755009691A2 /* ToastMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CFBDDA2C8B2755009691A2 /* ToastMessage.swift */; };
@@ -81,6 +83,8 @@
 		C15859442C89F6F10009EF8F /* ProductDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewModel.swift; sourceTree = "<group>"; };
 		C18F11B12C916B0E00379255 /* CartRealmObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartRealmObject.swift; sourceTree = "<group>"; };
 		C18F11B32C916B2400379255 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
+		C18F11B52C91757C00379255 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
+		C18F11B82C9176F400379255 /* ProductCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellView.swift; sourceTree = "<group>"; };
 		C1CFBDD22C89FA70009691A2 /* ProductRealmObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRealmObject.swift; sourceTree = "<group>"; };
 		C1CFBDDA2C8B2755009691A2 /* ToastMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastMessage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -180,6 +184,7 @@
 		C15858C42C89BED40009EF8F /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				C18F11B72C9176E800379255 /* ProductCell */,
 				C15858C62C89BF110009EF8F /* ProductsList */,
 				C15858C72C89BF1D0009EF8F /* ProductDetails */,
 				C15858C52C89BF030009EF8F /* Cart */,
@@ -191,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				C15858C92C89BF7F0009EF8F /* CartView.swift */,
+				C18F11B52C91757C00379255 /* CartViewModel.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -265,6 +271,14 @@
 				C15858DE2C89CFDE0009EF8F /* Product.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		C18F11B72C9176E800379255 /* ProductCell */ = {
+			isa = PBXGroup;
+			children = (
+				C18F11B82C9176F400379255 /* ProductCellView.swift */,
+			);
+			path = ProductCell;
 			sourceTree = "<group>";
 		};
 		C1CFBDD12C89FA56009691A2 /* RealmModels */ = {
@@ -433,6 +447,7 @@
 				C15858BA2C89AA260009EF8F /* RootCoordinator.swift in Sources */,
 				C15858D12C89C05B0009EF8F /* CartService.swift in Sources */,
 				C15858912C89A9750009EF8F /* e_commerce_8x8.xcdatamodeld in Sources */,
+				C18F11B92C9176F400379255 /* ProductCellView.swift in Sources */,
 				C18F11B22C916B0E00379255 /* CartRealmObject.swift in Sources */,
 				C15858DF2C89CFDE0009EF8F /* Product.swift in Sources */,
 				C15858872C89A9750009EF8F /* AppDelegate.swift in Sources */,
@@ -442,6 +457,7 @@
 				C15859452C89F6F10009EF8F /* ProductDetailsViewModel.swift in Sources */,
 				C1CFBDD32C89FA70009691A2 /* ProductRealmObject.swift in Sources */,
 				C15858CD2C89C02A0009EF8F /* API.swift in Sources */,
+				C18F11B62C91757C00379255 /* CartViewModel.swift in Sources */,
 				C1CFBDDB2C8B2755009691A2 /* ToastMessage.swift in Sources */,
 				C15858BE2C89B1D00009EF8F /* ProductDetailsView.swift in Sources */,
 				C15858CF2C89C0480009EF8F /* ProductsService.swift in Sources */,
